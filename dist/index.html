@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>weahter</title>
+    <script src="https://kit.fontawesome.com/14a3d3d526.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+
+        <div id="container">
+        
+                <div class="input-part">
+                        <input id="city-input" type="text" placeholder="City Name">
+                        <button id="search"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="display"></div> 
+        </div>
+
+        <script id="first-template" type="text/x-handlebars-template">
+            {{#each allCityData}}
+                <div class="city">
+                    <div class="first-part">
+                        {{#if isSaved}}
+                            <i class="fas fa-minus-circle buttons"></i>
+                        {{else}}
+                            <i class="fas fa-plus-circle buttons"></i>
+                        {{/if}} 
+                    </div> 
+                    <div class="second-part">
+                        <div class="temprature items">{{temperature}}<span>&#8451;</span>
+                        </div>
+                        <div class="name items">{{name}}</div>
+                    </div> 
+                    <div class="third-part">
+                        <div><img class="icon items" src="{{conditionPic}}"></div>
+                        <div class="conditions items">{{condition}}</div>
+                        <!-- <div class="lastUpdated">Last update: {{updatedAt}}</div> -->
+                    </div>
+                </div>
+            {{/each}}
+        </script>
+        
+    
+        <script src="jquery/dist/jquery.js"></script>
+        <script src="handlebars/dist/handlebars.js"></script>
+        <script src="TempManager.js"></script>
+        <script src="Renderer.js"></script>
+        <script src="main.js"></script>
+</body>
+</html>
